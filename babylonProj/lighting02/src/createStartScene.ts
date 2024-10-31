@@ -1,10 +1,11 @@
-// import "@babylonjs/core/Debug/debugLayer";
-// import "@babylonjs/inspector";
+import "@babylonjs/core/Debug/debugLayer";
+import "@babylonjs/inspector";
 import {
     Scene,
     ArcRotateCamera,
     Vector3,
     HemisphericLight,
+    DirectionalLight,
     MeshBuilder,
     Mesh,
     Light,
@@ -21,12 +22,25 @@ import {
   }
 
   
-  function createLight(scene: Scene) {
-    const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
-    light.intensity = 0.7;
+  function createHemisphericLight(scene: Scene ){
+    const light:HemisphericLight = new HemisphericLight("light", new Vector3(1, 10, 0),scene);
+    light.intensity = 0.3;
+    light.diffuse = new Color3(1, 0, 0);
+    light.specular = new Color3(0, 1, 0);
+    light.groundColor = new Color3(0, 1, 0);
     return light;
-  }
-  
+}
+
+function createDirectionalLight(scene: Scene ){
+  const light = new DirectionalLight("light", new Vector3(0.2, -1, 0.2),scene);
+  light.position = new Vector3(20, 40, 20);
+  light.intensity = 0.7;
+  light.diffuse = new Color3(1, 0, 0);
+  light.specular = new Color3(0, 1, 0);
+  return light;
+}
+
+
   
   function createSphere(scene: Scene) {
     let sphere = MeshBuilder.CreateSphere(
@@ -78,7 +92,8 @@ import {
     that.scene.debugLayer.show();
   
     that.box = createBox(that.scene);
-    that.light = createLight(that.scene);
+    that.light = createHemisphericLight(that.scene);
+    that.light = createDirectionalLight(that.scene);
     that.sphere = createSphere(that.scene);
     that.ground = createGround(that.scene);
     that.camera = createArcRotateCamera(that.scene);

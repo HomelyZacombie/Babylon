@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "lighting01build": "tsc && vite build lighting01",
+    "lighting01preview": "vite preview lighting01 --host",
+    "lighting02build": "tsc && vite build lighting02",
+    "lighting02preview": "vite preview lighting02 --host",
+    "rotationbuild": "tsc && vite build rotation",
+    "rotationpreview": "vite preview rotation --host"
   },
   "devDependencies": {
     "typescript": "~5.6.2",
