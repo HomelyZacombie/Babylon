@@ -14,13 +14,57 @@ import {
   Color3,
   ShadowGenerator,
   Engine,
+  
 } from "@babylonjs/core";
 
 function createBox(scene) {
   let box = MeshBuilder.CreateBox("box", scene);
-  box.position.y = 3;
+  box.position.y = 1;
+  box.position.x = 3;
   box.position.y = 0.51;
   return box;
+}
+
+function createBox2(scene) {
+  let box = MeshBuilder.CreateBox("box", scene);
+  box.position.y = 3;
+  box.position.x = 3;
+  box.position.y = 0.51;
+  return box;
+}
+
+function createSphere(scene: Scene) {
+  let sphere = MeshBuilder.CreateSphere(
+    "sphere",
+    { diameter: 2, segments: 32 },
+    scene
+  );
+  sphere.position.y = 1.5;
+  return sphere;
+}
+
+function createTorus(scene){
+  let torus = MeshBuilder.CreateTorus(
+    "torus",
+    { thickness: 6, diameter: 6},
+    scene
+  );
+  torus.position.x = 3;
+  return torus;
+}
+
+function createGround(scene: Scene) {
+  let ground = MeshBuilder.CreateGround(
+    "ground",
+    { width: 6, height: 6 },
+    scene
+  );
+
+  var groundMaterial = new StandardMaterial("groundMaterial", scene);
+  groundMaterial.backFaceCulling = false;
+  ground.material = groundMaterial;
+  ground.receiveShadows = true;
+  return ground;
 }
 
 function createPointLight(scene: Scene) {
@@ -84,28 +128,6 @@ function createShadows(light: DirectionalLight, sphere: Mesh, box: Mesh) {
   return shadower;
 }
 
-function createSphere(scene: Scene) {
-  let sphere = MeshBuilder.CreateSphere(
-    "sphere",
-    { diameter: 2, segments: 32 },
-    scene
-  );
-  sphere.position.y = 1.5;
-  return sphere;
-}
-
-function createGround(scene: Scene) {
-  let ground = MeshBuilder.CreateGround(
-    "ground",
-    { width: 6, height: 6 },
-    scene
-  );
-  var groundMaterial = new StandardMaterial("groundMaterial", scene);
-  groundMaterial.backFaceCulling = false;
-  ground.material = groundMaterial;
-  ground.receiveShadows = true;
-  return ground;
-}
 
 function createArcRotateCamera(scene: Scene) {
   let camAlpha = -Math.PI / 2,
@@ -126,19 +148,26 @@ function createArcRotateCamera(scene: Scene) {
 
 export default function createStartScene(engine: Engine) {
   let scene = new Scene(engine);
+  //Objects
   let box = createBox(scene);
+  let box2 = createBox2(scene);
+  let torus = createTorus(scene);
+  let sphere = createSphere(scene);
+  let ground = createGround(scene);
+  //lighting
   let lightBulb = createPointLight(scene);
   let lightDirectional = createDirectionalLight(scene);
   let lightSpot = createSpotLight(scene);
   let lightHemispheric = createHemisphericLight(scene);
-  let sphere = createSphere(scene);
-  let ground = createGround(scene);
+  //shadow and camara
   let camera = createArcRotateCamera(scene);
   let shadowGenerator = createShadows(lightDirectional, sphere, box);
 
   let that: SceneData = {
     scene,
     box,
+    box2,
+    torus,
     lightBulb,
     lightDirectional,
     lightSpot,

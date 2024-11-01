@@ -12,6 +12,8 @@ import {
   export interface SceneData {
     scene: Scene;
     box: Mesh;
+    torus: Mesh;
+    box2: Mesh;
     lightBulb: PointLight;
     lightDirectional?: DirectionalLight;
     lightSpot: SpotLight;
