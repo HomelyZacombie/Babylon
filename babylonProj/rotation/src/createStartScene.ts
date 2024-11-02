@@ -19,17 +19,33 @@ import {
 
 function createBox(scene) {
   let box = MeshBuilder.CreateBox("box", scene);
-  box.position.y = 1;
-  box.position.x = 3;
-  box.position.y = 0.51;
+  box.position.y = 0;//whys this in if it dosent effect the object ?
+  box.position.x = 0;
   return box;
 }
 
 function createBox2(scene) {
   let box = MeshBuilder.CreateBox("box", scene);
-  box.position.y = 3;
-  box.position.x = 3;
-  box.position.y = 0.51;
+  box.position.y = 6;
+  box.position.x = -2.2;
+  box.position.z = -2.2;
+  
+  return box;
+}
+
+function createBox3(scene) {
+  let box = MeshBuilder.CreateBox("box", scene);
+  box.position.y = 6;
+  box.position.z = 3;
+ 
+  return box;
+}
+
+function createBox4(scene) {
+  let box = MeshBuilder.CreateBox("box", scene);
+  box.position.y = 6;
+  box.position.x = 2.2;
+  box.position.z = -2.2;
   return box;
 }
 
@@ -39,24 +55,60 @@ function createSphere(scene: Scene) {
     { diameter: 2, segments: 32 },
     scene
   );
-  sphere.position.y = 1.5;
+  sphere.position.y = 12;
   return sphere;
 }
 
 function createTorus(scene){
   let torus = MeshBuilder.CreateTorus(
     "torus",
-    { thickness: 6, diameter: 6},
+    { thickness: 0.5, diameter: 6},
     scene
   );
-  torus.position.x = 3;
+  //torus.position.x = 3;
+  torus.position.y = 3;
   return torus;
+}
+
+function createCylinder(scene){
+  let cylinder = MeshBuilder.CreateCylinder(
+    "cylinder",
+    {diameterTop: 0, diameter: 2, height: 5, subdivisions: 3, sideOrientation: 4},
+    scene
+  );
+  cylinder.position.y = 2.5
+  cylinder.position.x = -2.2
+  cylinder.position.z = -2.2
+  return cylinder;
+}
+
+function createCylinder2(scene){
+  let cylinder = MeshBuilder.CreateCylinder(
+    "cylinder",
+    {diameterTop: 0, diameter: 2, height: 5,},
+    scene
+  );
+  cylinder.position.y = 2.5
+  cylinder.position.z = 3
+  return cylinder;
+}
+
+function createCylinder3(scene){
+  let cylinder = MeshBuilder.CreateCylinder(
+    "cylinder",
+    {diameterTop: 0, diameter: 2, height: 5},
+    scene
+  );
+  cylinder.position.y = 2.5
+  cylinder.position.x = 2.2
+  cylinder.position.z = -2.2
+  return cylinder;
 }
 
 function createGround(scene: Scene) {
   let ground = MeshBuilder.CreateGround(
     "ground",
-    { width: 6, height: 6 },
+    { width: 8, height: 8 },
     scene
   );
 
@@ -107,9 +159,9 @@ function createHemisphericLight(scene: Scene) {
     scene
   );
   light.intensity = 0.3;
-  light.diffuse = new Color3(1, 0, 0);
-  light.specular = new Color3(0, 1, 0);
-  light.groundColor = new Color3(0, 1, 0);
+  light.diffuse = new Color3(0, 2, 0);
+  light.specular = new Color3(1, 0, 0);
+  light.groundColor = new Color3(0, 0, 20);
   return light;
 }
 
@@ -151,8 +203,13 @@ export default function createStartScene(engine: Engine) {
   //Objects
   let box = createBox(scene);
   let box2 = createBox2(scene);
+  let box3 = createBox3(scene);
+  let box4 = createBox4(scene);
   let torus = createTorus(scene);
   let sphere = createSphere(scene);
+  let cone = createCylinder(scene);
+  let cone2 = createCylinder2(scene);
+  let cone3 = createCylinder3(scene);
   let ground = createGround(scene);
   //lighting
   let lightBulb = createPointLight(scene);
@@ -161,12 +218,17 @@ export default function createStartScene(engine: Engine) {
   let lightHemispheric = createHemisphericLight(scene);
   //shadow and camara
   let camera = createArcRotateCamera(scene);
-  let shadowGenerator = createShadows(lightDirectional, sphere, box);
+  let shadowGenerator = createShadows(lightDirectional, sphere, torus);
 
   let that: SceneData = {
     scene,
     box,
     box2,
+    box3,
+    box4,
+    cone,
+    cone2,
+    cone3,
     torus,
     lightBulb,
     lightDirectional,
