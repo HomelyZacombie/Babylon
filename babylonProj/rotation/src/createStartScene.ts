@@ -99,6 +99,8 @@ function createCylinder3(scene){
     {diameterTop: 0, diameter: 2, height: 5},
     scene
   );
+  
+  
   cylinder.position.y = 2.5
   cylinder.position.x = 2.2
   cylinder.position.z = -2.2
