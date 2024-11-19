@@ -14,6 +14,8 @@ import {
   Color3,
   ShadowGenerator,
   Engine,
+  GroundMesh,
+  Texture,
   
 } from "@babylonjs/core";
 
@@ -56,6 +58,11 @@ function createSphere(scene: Scene) {
     scene
   );
   sphere.position.y = 12;
+
+  const LavaMat = new StandardMaterial("LavaMat");
+  LavaMat.diffuseTexture = new Texture("./textures/Lava.png");
+  sphere.material = LavaMat;
+
   return sphere;
 }
 
@@ -79,8 +86,19 @@ function createCylinder(scene){
   cylinder.position.y = 2.5
   cylinder.position.x = -2.2
   cylinder.position.z = -2.2
+
+  const LavaMat = new StandardMaterial("LavaMat");
+  LavaMat.diffuseTexture = new Texture("./textures/RockMoss.png");
+  cylinder.material = LavaMat;
+  //cylinder.material = this.CreateLavaMat();
   return cylinder;
 }
+
+//CreateLavaMat(): StandardMaterial{
+//const LavaMat = new StandardMaterial("LavaMat", this.scene);
+
+//return LavaMat;
+//}
 
 function createCylinder2(scene){
   let cylinder = MeshBuilder.CreateCylinder(
@@ -90,6 +108,11 @@ function createCylinder2(scene){
   );
   cylinder.position.y = 2.5
   cylinder.position.z = 3
+
+  const LavaMat = new StandardMaterial("LavaMat");
+  LavaMat.diffuseTexture = new Texture("./textures/RockMoss.png");
+  cylinder.material = LavaMat;
+
   return cylinder;
 }
 
@@ -99,11 +122,14 @@ function createCylinder3(scene){
     {diameterTop: 0, diameter: 2, height: 5},
     scene
   );
-  
-  
   cylinder.position.y = 2.5
   cylinder.position.x = 2.2
   cylinder.position.z = -2.2
+
+  const LavaMat = new StandardMaterial("LavaMat");
+  LavaMat.diffuseTexture = new Texture("./textures/RockMoss.png");
+  cylinder.material = LavaMat;
+  
   return cylinder;
 }
 
