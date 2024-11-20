@@ -56,7 +56,7 @@ export default function createRunScene(runScene: SceneData) {
       boxAngle += boxSpeed;
       boxAngle %= 1;
       
-  
+    
       
     // move light in ellipse  and cycle luma
     runScene.lightSpot.position = new Vector3(
