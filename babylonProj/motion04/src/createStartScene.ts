@@ -92,6 +92,7 @@ function createArcRotateCamera(scene: Scene) {
   return camera;
 }
 
+
 function createBox1(scene: Scene) {
   let box = MeshBuilder.CreateBox("box", { width: 1, height: 1 }, scene);
   box.position.x = -1;
@@ -100,7 +101,7 @@ function createBox1(scene: Scene) {
 
   var texture = new StandardMaterial("reflective", scene);
   texture.ambientTexture = new Texture(
-    "./assets/textures/reflectivity.png",
+    "./assets/textures/RedBrick.jpg",
     scene
   );
   texture.diffuseColor = new Color3(1, 1, 1);
@@ -116,7 +117,7 @@ function createBox2(scene: Scene) {
 
   var texture = new StandardMaterial("reflective", scene);
   texture.ambientTexture = new Texture(
-    "./assets/textures/reflectivity.png",
+    "./assets/textures/RedBrick.jpg",
     scene
   );
   texture.diffuseColor = new Color3(1, 1, 1);
@@ -152,6 +153,7 @@ export default function createStartScene(engine: Engine) {
   let box2 = createBox2(scene);
   let player = importMeshA(scene, 0, 0);
   let ground = createGround(scene);
+
 
   let that: SceneData = {
     scene,

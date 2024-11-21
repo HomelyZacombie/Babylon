@@ -6,7 +6,7 @@ import {
   Skeleton,
   _ENVTextureLoader,
 } from "@babylonjs/core";
-import { SceneData } from "./interfaces ";
+import { SceneData } from "./interfaces";
 import {
   keyActionManager,
   keyDownMap,

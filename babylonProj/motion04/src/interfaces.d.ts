@@ -14,5 +14,8 @@ export interface SceneData {
   camera: Camera;
   player: Promise<void | ISceneLoaderAsyncResult>;
   ground: Mesh;
+
+  box1: Mesh;
+  box2: Mesh;
 }
 
