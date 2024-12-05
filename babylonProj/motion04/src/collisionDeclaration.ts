@@ -1,4 +1,4 @@
-import { SceneData } from "./interfaces";
+/*import { SceneData } from "./interfaces";
 import HavokPhysics, { HavokPhysicsWithBindings } from "@babylonjs/havok";
 import { AbstractMesh, HavokPlugin, ISceneLoaderAsyncResult, PhysicsAggregate, PhysicsShapeType, Vector3 } from "@babylonjs/core";
 import "@babylonjs/loaders";
@@ -87,4 +87,4 @@ export function collisionDeclaration(runScene : SceneData){
         playerAggregate.body.setCollisionCallbackEnabled(true);
         
       });
-}
+}*/

@@ -1,5 +1,3 @@
-
-
 import { Scene } from "@babylonjs/core/scene";
 import { AnimationPropertiesOverride, AnimationRange, Nullable, Skeleton } from "@babylonjs/core";
 

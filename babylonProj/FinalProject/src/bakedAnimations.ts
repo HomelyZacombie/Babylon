@@ -1,5 +1,3 @@
-
-
 import { Scene } from "@babylonjs/core/scene";
 import { AnimationPropertiesOverride, AnimationRange, Nullable, Skeleton } from "@babylonjs/core";
 
@@ -32,7 +30,6 @@ export function bakedAnimations(myscene: Scene, skeleton: Skeleton){
    idleRange = skeleton.getAnimationRange("YBot_Idle");
    console.log(idleRange);
    
-
 }
 
 export function walk(){

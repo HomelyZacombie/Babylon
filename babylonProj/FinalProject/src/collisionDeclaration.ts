@@ -65,8 +65,9 @@ export function collisionDeclaration(runScene : SceneData){
       );
       boxAggregate2.body.setCollisionCallbackEnabled(true);
     
-      runScene.player!.then((result: void | ISceneLoaderAsyncResult) => {
+      /*runScene.player!.then((result: void | ISceneLoaderAsyncResult) => {
         let character: AbstractMesh = result!.meshes[0];
+        //Sets starting rotation: aka where hes faceing
         character.rotation = new Vector3(0, 0.5, 0);
     
         const playerAggregate = new PhysicsAggregate(
@@ -78,13 +79,14 @@ export function collisionDeclaration(runScene : SceneData){
         playerAggregate.body.setMassProperties({
           inertia: new Vector3(0.0, 1, 0.0), 
         });
-        playerAggregate.body.setAngularVelocity(new Vector3(0, 12, 0));
+        //Makes character spin
+        //playerAggregate.body.setAngularVelocity(new Vector3(12, 0, 0));
         
-        playerAggregate.body.applyImpulse (new Vector3(0, 0, 0),character.position);
+        playerAggregate.body.applyImpulse (new Vector3(0, 2, 0),character.position);
 
         playerAggregate.body.disablePreStep = false;
         playerAggregate.body.setCollisionCallbackEnabled(true);
         
-      });
+      });*/
 }
 
