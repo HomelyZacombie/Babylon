@@ -11,14 +11,16 @@
     "lighting01preview": "vite preview lighting01 --host",
     "lighting02build": "tsc && vite build lighting02",
     "lighting02preview": "vite preview lighting02 --host",
-    "rotationbuild": "tsc && vite build rotation",
-    "rotationpreview": "vite preview rotation --host",
     "motion03build": "tsc && vite build motion03",
     "motion03preview": "vite preview motion03 --host",
-    "collision03build": "tsc && vite build collision03",
-    "collision03preview": "vite preview collision03 --host",
-    "FinalProjectbuild": "tsc && vite build FinalProject",
-    "FinalProjectpreview": "vite preview FinalProject --host"
+    "rotationbuild": "vite build rotation",
+    "rotationpreview": "preview rotation --host",
+    "collision03build": "vite build collision03",
+    "collision03preview": "preview collision03 --host",
+    "villagebuild": "vite build village",
+    "villagepreview": "preview village --host",
+    "FinalProjectbuild": "vite build FinalProject",
+    "FinalProjectpreview": "preview FinalProject --host"
     
   },
   "devDependencies": {
